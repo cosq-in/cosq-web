@@ -169,3 +169,73 @@
   text-shadow: 3px 3px 0 var(--cosq-purple);
   margin: 0 0 24px;
 }
+
+/* PHONES: thread runs down a left gutter, cards take the remaining width */
+@media (max-width: 640px) {
+  .subevents-nav {
+    padding: 8px 16px;
+    flex-wrap: nowrap;
+  }
+
+  .subevents-brand img {
+    height: 36px;
+    width: 36px;
+  }
+
+  .subevents-brand span {
+    font-size: 24px;
+  }
+
+  .cosq-ds .subevents-back,
+  .cosq-ds .subevents-back:hover {
+    font-size: 12px;
+    text-align: right;
+  }
+
+  .subevents-hero {
+    padding: 48px 16px 56px;
+  }
+
+  .cosq-ds .subevents-hero h1 {
+    font-size: clamp(40px, 13vw, 56px);
+    text-shadow: 4px 4px 0 var(--cosq-purple);
+  }
+
+  .cosq-ds .subevents-hero p {
+    font-size: 17px;
+  }
+
+  .journey.is-mobile .journey-node {
+    left: 72px;
+    right: 0;
+    width: auto;
+    transform: translateY(-50%);
+  }
+
+  .journey-card {
+    padding: 18px 16px 14px;
+  }
+
+  .cosq-ds .journey-card h3 {
+    font-size: 18px;
+  }
+
+  .cosq-ds .journey-card p {
+    font-size: 15px;
+  }
+
+  .journey-num {
+    font-size: 20px;
+  }
+
+  .subevents-footer {
+    padding: 48px 16px;
+  }
+
+  .subevents-footer > a {
+    width: calc(100% - 6px);
+    min-height: 50px !important;
+    padding: 0 16px !important;
+    font-size: 17px !important;
+  }
+}

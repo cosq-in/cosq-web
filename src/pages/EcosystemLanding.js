@@ -40,6 +40,7 @@ const VOLUNTEER_FORM = 'https://forms.gle/eSjE4LS8Czn3pvay6';
 
 const EcosystemLanding = () => {
   const [showNote, setShowNote] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   // Smooth scrolling for the in-page nav anchors, only while this page is mounted.
   useEffect(() => {
@@ -57,7 +58,17 @@ const EcosystemLanding = () => {
           <img src="/icon.png" alt="CosQ" />
           <span>COSQ</span>
         </a>
-        <div className="home-links">
+        {/* Only shown on phones, where the links collapse into a menu */}
+        <button
+          type="button"
+          className="home-menu-toggle"
+          aria-expanded={menuOpen}
+          aria-controls="home-links"
+          onClick={() => setMenuOpen(o => !o)}
+        >
+          {menuOpen ? 'Close' : 'Menu'}
+        </button>
+        <div id="home-links" className={`home-links${menuOpen ? ' is-open' : ''}`} onClick={() => setMenuOpen(false)}>
           <a href="#event">Event</a>
           <Link to="/sub-events">Sub-events</Link>
           <a href="#ecosystem">Ecosystem</a>

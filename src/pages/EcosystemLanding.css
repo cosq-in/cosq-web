@@ -29,6 +29,10 @@
   letter-spacing: 1px;
 }
 
+.home-menu-toggle {
+  display: none;
+}
+
 .cosq-ds .home-links a,
 .cosq-ds .home-links a:hover {
   color: var(--cosq-purple-deep);
@@ -258,7 +262,7 @@
 
 .home-brands {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
   gap: 32px;
   margin-top: 32px;
 }
@@ -452,7 +456,7 @@
 
 .home-team-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
   gap: 32px;
 }
 
@@ -533,4 +537,224 @@
   margin: 40px auto 0;
   color: #fff;
   font-size: 14px;
+}
+
+/* PHONES: everything below only applies under 640px */
+@media (max-width: 640px) {
+  .home-nav {
+    padding: 8px 16px;
+    flex-wrap: nowrap;
+  }
+
+  .home-nav .subevents-brand img {
+    height: 36px;
+    width: 36px;
+  }
+
+  .home-nav .subevents-brand span {
+    font-size: 24px;
+  }
+
+  .home-menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    min-height: 40px;
+    padding: 0 14px;
+    border: 3px solid var(--cosq-purple);
+    border-radius: 4px;
+    background: var(--cosq-pink);
+    color: #fff;
+    font: 400 14px var(--font-display);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    box-shadow: var(--shadow-hard-sm);
+    cursor: pointer;
+  }
+
+  .home-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    background: #fff;
+    border-bottom: 4px solid var(--cosq-purple);
+    box-shadow: 0 6px 0 rgba(62, 15, 87, .15);
+  }
+
+  .home-links.is-open {
+    display: flex;
+  }
+
+  .cosq-ds .home-links a {
+    padding: 14px 16px;
+    font-size: 18px;
+    border-top: 2px solid var(--cosq-pink-light);
+  }
+
+  /* Hero fits one phone screen, with content flowing instead of overflowing */
+  .home-hero {
+    height: auto;
+    min-height: calc(100svh - 60px);
+    max-height: none;
+  }
+
+  .home-hero-inner {
+    min-height: calc(100svh - 66px);
+    padding: 20px 16px 24px;
+  }
+
+  .cosq-ds .home-hero h1 {
+    font-size: clamp(28px, 8.6vw, 40px);
+    -webkit-text-stroke: 1.5px var(--cosq-pink);
+    text-shadow: 3px 3px 0 var(--cosq-purple);
+  }
+
+  .home-hero-bottom {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+
+  .home-when {
+    align-self: flex-start;
+    padding: 10px 16px;
+    gap: 4px;
+  }
+
+  .home-hero-ctas,
+  .home-contact-ctas {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+  }
+
+  /* Design-system buttons carry inline sizes, so phones override them here */
+  .home-hero-ctas > *,
+  .home-contact-ctas > *,
+  .home-teaser > a {
+    width: calc(100% - 6px);
+    min-height: 50px !important;
+    padding: 0 16px !important;
+    font-size: 17px !important;
+  }
+
+  .home-note {
+    position: static;
+    font-size: 15px;
+    padding: 10px 14px;
+  }
+
+  .home-teaser {
+    padding: 48px 16px 8px;
+    gap: 20px;
+  }
+
+  .cosq-ds .home-teaser p,
+  .cosq-ds .home-ecosystem-lead,
+  .cosq-ds .home-team-lead,
+  .cosq-ds .home-contact-row p {
+    font-size: 17px;
+  }
+
+  .home-ecosystem {
+    margin-top: 48px;
+    padding: 56px 16px;
+  }
+
+  .cosq-ds .home-ecosystem-lead,
+  .cosq-ds .home-team-lead {
+    margin-bottom: 28px;
+  }
+
+  .home-ventures,
+  .home-brands,
+  .home-team-grid {
+    gap: 24px;
+  }
+
+  .home-brands {
+    margin-top: 24px;
+  }
+
+  .cosq-ds .venture {
+    padding: 20px;
+    min-height: 0;
+  }
+
+  .cosq-ds .kurukuru,
+  .cosq-ds .teantab {
+    padding: 22px;
+    min-height: 0;
+  }
+
+  .kurukuru-cloud.a { top: 18px; right: 16px; width: 70px; height: 22px; }
+  .kurukuru-cloud.b { top: 40px; right: 50px; width: 46px; height: 18px; }
+
+  .cosq-ds .kurukuru p {
+    font-size: 16px;
+    padding: 12px 14px;
+  }
+
+  .teantab-title {
+    padding: 12px 16px;
+    gap: 8px;
+  }
+
+  .teantab-title span:first-child {
+    font-size: 28px;
+    white-space: nowrap;
+  }
+
+  .teantab-title span:last-child {
+    white-space: nowrap;
+  }
+
+  .teantab-mark {
+    width: 52px;
+    font-size: 28px;
+  }
+
+  .teantab-search {
+    font-size: 15px;
+    padding: 14px 16px;
+  }
+
+  .teantab-row {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .teantab-tabs span {
+    padding: 5px 13px;
+  }
+
+  .teantab-cta {
+    font-size: 24px;
+    padding: 14px;
+  }
+
+  .home-team {
+    padding: 56px 16px;
+  }
+
+  .member {
+    padding: 20px;
+  }
+
+  .home-contact {
+    padding: 48px 16px 24px;
+  }
+
+  .home-contact-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 24px;
+  }
+
+  .home-copy {
+    margin-top: 28px;
+  }
 }
