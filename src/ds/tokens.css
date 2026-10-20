@@ -1,0 +1,83 @@
+@import url("https://fonts.googleapis.com/css2?family=Bungee&family=Outfit:wght@400;500;700&display=swap");
+
+/* CosQ design system tokens */
+:root {
+  --cosq-pink: #E94FA8;
+  --cosq-pink-bright: #FF5EB5;
+  --cosq-pink-light: #FF8FF6;
+  --cosq-purple: #6A1B8F;
+  --cosq-purple-deep: #3E0F57;
+  --white: #fff;
+
+  --fg-1: var(--cosq-purple-deep);
+  --fg-on-pink: #fff;
+  --bg-page: var(--white);
+  --bg-brand: var(--cosq-pink);
+  --border-color: var(--cosq-purple);
+  --accent: var(--cosq-pink);
+  --link: var(--cosq-pink);
+  --link-hover: var(--cosq-purple);
+
+  --font-display: 'Bungee', 'Arial Black', sans-serif;
+  --font-body: 'Outfit', sans-serif;
+  --fs-body: 17px;
+  --lh-body: 1.5;
+  --fs-h1: clamp(48px, 8vw, 96px);
+  --fs-h2: clamp(32px, 5vw, 56px);
+  --fs-h3: 26px;
+  --fs-btn: 20px;
+  --fs-chip: 14px;
+  --lh-heading: 1;
+
+  --border-w: 4px;
+  --radius: 4px;
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 24px;
+  --sp-6: 32px;
+  --sp-7: 48px;
+  --sp-8: 96px;
+  --wrap: 1120px;
+  --shadow-hard: 6px 6px 0 var(--cosq-purple);
+  --shadow-hard-sm: 3px 3px 0 var(--cosq-purple);
+  --ease-press: cubic-bezier(.2, .9, .3, 1);
+}
+
+/* Base styles, scoped so legacy pages keep their own look */
+.cosq-ds {
+  background: var(--bg-page);
+  color: var(--fg-1);
+  font: 400 var(--fs-body)/var(--lh-body) var(--font-body);
+}
+
+.cosq-ds *,
+.cosq-ds *::before,
+.cosq-ds *::after {
+  box-sizing: border-box;
+}
+
+.cosq-ds a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+.cosq-ds a:hover {
+  color: var(--link-hover);
+}
+
+.cosq-ds h1,
+.cosq-ds h2,
+.cosq-ds h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: var(--lh-heading);
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.cosq-ds p {
+  margin: 0;
+  text-wrap: pretty;
+}

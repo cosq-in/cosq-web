@@ -1,0 +1,171 @@
+.subevents {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.subevents-nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 10px 32px;
+  background: #fff;
+  border-bottom: 4px solid var(--cosq-purple);
+}
+
+.subevents-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.subevents-brand img {
+  height: 44px;
+  width: 44px;
+  object-fit: contain;
+}
+
+.subevents-brand span {
+  font: 400 28px var(--font-display);
+  color: var(--cosq-pink);
+  text-shadow: 2px 2px 0 var(--cosq-purple);
+}
+
+.cosq-ds .subevents-back,
+.cosq-ds .subevents-back:hover {
+  font: 400 15px var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--cosq-purple-deep);
+}
+
+.subevents-hero {
+  position: relative;
+  background: var(--cosq-pink);
+  background-image: radial-gradient(var(--cosq-pink-bright) 2px, transparent 2.5px);
+  background-size: 16px 16px;
+  border-bottom: 6px solid var(--cosq-purple);
+  padding: 64px 32px 72px;
+  text-align: center;
+}
+
+.cosq-ds .subevents-hero h1 {
+  font: 400 var(--fs-h1)/0.95 var(--font-display);
+  text-transform: uppercase;
+  color: #fff;
+  margin: 24px 0 16px;
+  text-shadow: 5px 5px 0 var(--cosq-purple);
+  -webkit-text-stroke: 2px var(--cosq-purple);
+  paint-order: stroke fill;
+}
+
+.cosq-ds .subevents-hero p {
+  font: 700 20px var(--font-body);
+  color: #fff;
+  margin: 0;
+}
+
+.subevents-section {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.journey {
+  position: relative;
+  width: 100%;
+}
+
+.journey svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.journey-needle {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 28px;
+  height: 28px;
+  margin: -14px 0 0 -14px;
+  border-radius: 50%;
+  background: #fff;
+  border: 5px solid var(--cosq-purple);
+  box-shadow: 3px 3px 0 var(--cosq-pink);
+  z-index: 3;
+  opacity: 0;
+}
+
+.journey-node {
+  position: absolute;
+  width: min(300px, 44vw);
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  opacity: 0;
+  margin-top: 30px;
+  transition: opacity .5s, margin-top .5s;
+}
+
+.journey-node.is-active {
+  opacity: 1;
+  margin-top: 0;
+}
+
+.journey-card {
+  position: relative;
+  background: #fff;
+  border: 4px solid var(--cosq-purple);
+  box-shadow: var(--shadow-hard);
+  padding: 18px 18px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.journey-num {
+  position: absolute;
+  top: -22px;
+  left: -14px;
+  background: var(--cosq-pink);
+  color: #fff;
+  border: 4px solid var(--cosq-purple);
+  font: 400 22px var(--font-display);
+  padding: 2px 12px;
+  transform: skewX(-8deg);
+}
+
+.cosq-ds .journey-card h3 {
+  font: 400 clamp(16px, 2vw, 22px)/1.1 var(--font-display);
+  text-transform: uppercase;
+  margin: 10px 0 0;
+  overflow-wrap: anywhere;
+}
+
+.cosq-ds .journey-card p {
+  font-size: clamp(13px, 1.5vw, 16px);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.subevents-footer {
+  background: var(--cosq-pink);
+  border-top: 6px solid var(--cosq-purple);
+  padding: 56px 32px;
+  text-align: center;
+}
+
+.cosq-ds .subevents-footer h2 {
+  font: 400 var(--fs-h2)/1 var(--font-display);
+  text-transform: uppercase;
+  color: #fff;
+  text-shadow: 3px 3px 0 var(--cosq-purple);
+  margin: 0 0 24px;
+}
