@@ -6,6 +6,7 @@ import Contact from './pages/Contact.js';
 import BackgroundComponent from './BackgroundComponent';
 import EcosystemLanding from './pages/EcosystemLanding';
 import Team from './pages/Team';
+import SubEvents from './pages/SubEvents';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/legacy" element={<BackgroundComponent />} />
           <Route path="/more" element={<More />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/sub-events" element={<SubEvents />} />
         </Routes>
       </div>
     </Router>
