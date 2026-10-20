@@ -8,26 +8,34 @@ import subEventsData from '../Events/subEventsData';
 
 const ROW = 230;
 const TOP = 150;
+const MOBILE_QUERY = '(max-width: 640px)';
+// On phones the thread wiggles inside a left gutter and the cards sit to its right.
+const MOBILE_ROW = 200;
+const MOBILE_XS = [14, 38];
+const MOBILE_MID = 26;
 
-// Thread geometry for a journey box of width W: nodes zig-zag between 25% and 75%.
-const geom = (W = 1000) => {
+// Thread geometry for a journey box of width W: nodes zig-zag between 25% and 75%
+// (or within the left gutter on phones).
+const geom = (W = 1000, mobile = false) => {
   const n = subEventsData.length, ys = [], xs = [];
+  const row = mobile ? MOBILE_ROW : ROW, mid = mobile ? MOBILE_MID : W / 2;
   for (let i = 0; i < n; i++) {
-    ys.push(TOP + i * ROW);
-    xs.push(i % 2 ? W * 0.75 : W * 0.25);
+    ys.push(TOP + i * row);
+    xs.push(mobile ? MOBILE_XS[i % 2] : i % 2 ? W * 0.75 : W * 0.25);
   }
   const H = ys[n - 1] + 200;
-  let d = `M ${W / 2} 0 C ${W / 2} ${TOP * 0.6} ${xs[0]} ${TOP * 0.4} ${xs[0]} ${ys[0]}`;
+  let d = `M ${mid} 0 C ${mid} ${TOP * 0.6} ${xs[0]} ${TOP * 0.4} ${xs[0]} ${ys[0]}`;
   for (let i = 0; i < n - 1; i++) {
     const m = (ys[i] + ys[i + 1]) / 2;
     d += ` C ${xs[i]} ${m + 40} ${xs[i + 1]} ${m - 40} ${xs[i + 1]} ${ys[i + 1]}`;
   }
-  d += ` C ${xs[n - 1]} ${ys[n - 1] + 90} ${W / 2} ${H - 90} ${W / 2} ${H}`;
+  d += ` C ${xs[n - 1]} ${ys[n - 1] + 90} ${mid} ${H - 90} ${mid} ${H}`;
   return { ys, xs, H, d };
 };
 
 const SubEvents = () => {
   const [active, setActive] = useState(0);
+  const [mobile, setMobile] = useState(() => window.matchMedia(MOBILE_QUERY).matches);
   const boxRef = useRef(null);
   const svgRef = useRef(null);
   const trackRef = useRef(null);
@@ -36,11 +44,18 @@ const SubEvents = () => {
   const needleRef = useRef(null);
 
   useEffect(() => {
+    const mq = window.matchMedia(MOBILE_QUERY);
+    const onChange = () => setMobile(mq.matches);
+    mq.addEventListener('change', onChange);
+    return () => mq.removeEventListener('change', onChange);
+  }, []);
+
+  useEffect(() => {
     // The thread draws down to 60% of the viewport; the needle rides its tip.
     const update = () => {
       const box = boxRef.current, p = threadRef.current;
       if (!box || !p) return;
-      const r = box.getBoundingClientRect(), g = geom(r.width);
+      const r = box.getBoundingClientRect(), g = geom(r.width, mobile);
       svgRef.current.setAttribute('viewBox', `0 0 ${r.width} ${g.H}`);
       [trackRef, shadowRef, threadRef].forEach(ref => ref.current.setAttribute('d', g.d));
       const ty = Math.max(0, Math.min(g.H, window.innerHeight * 0.6 - r.top));
@@ -65,9 +80,9 @@ const SubEvents = () => {
       window.removeEventListener('scroll', update);
       window.removeEventListener('resize', update);
     };
-  }, []);
+  }, [mobile]);
 
-  const g = geom();
+  const g = geom(1000, mobile);
 
   return (
     <div className="cosq-ds subevents">
@@ -86,7 +101,7 @@ const SubEvents = () => {
       </header>
 
       <section className="subevents-section">
-        <div ref={boxRef} className="journey" style={{ height: g.H }}>
+        <div ref={boxRef} className={`journey${mobile ? ' is-mobile' : ''}`} style={{ height: g.H }}>
           <svg ref={svgRef} viewBox={`0 0 1000 ${g.H}`}>
             <path ref={trackRef} d={g.d} fill="none" stroke="var(--cosq-pink-light)" strokeWidth="5" strokeDasharray="2 14" strokeLinecap="round" />
             <path ref={shadowRef} d={g.d} fill="none" stroke="var(--cosq-purple)" strokeWidth="14" strokeLinecap="round" style={{ strokeDasharray: '0 100000' }} />
@@ -97,7 +112,7 @@ const SubEvents = () => {
             <div
               key={ev.title}
               className={`journey-node${i < active ? ' is-active' : ''}`}
-              style={{ left: `${g.xs[i] / 10}%`, top: g.ys[i] }}
+              style={mobile ? { top: g.ys[i] } : { left: `${g.xs[i] / 10}%`, top: g.ys[i] }}
             >
               <div className="journey-card" style={{ transform: `rotate(${i % 2 ? 1 : -1}deg)` }}>
                 <span className="journey-num">{String(i + 1).padStart(2, '0')}</span>
