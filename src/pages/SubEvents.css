@@ -35,7 +35,8 @@
   text-shadow: 2px 2px 0 var(--cosq-purple);
 }
 
-.cosq-ds .subevents-back {
+.cosq-ds .subevents-back,
+.cosq-ds .subevents-back:hover {
   font: 400 15px var(--font-display);
   text-transform: uppercase;
   letter-spacing: 1px;

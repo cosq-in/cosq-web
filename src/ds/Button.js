@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
-// Presses into its hard shadow on mouse down. Renders an <a> when given href.
-const Button = ({ variant = 'primary', href, children, style, ...rest }) => {
+// Presses into its hard shadow on mouse down. Renders a router Link when given
+// `to`, an <a> when given href.
+const Button = ({ variant = 'primary', to, href, children, style, ...rest }) => {
   const [pressed, setPressed] = useState(false);
   const alt = variant === 'alt';
   const s = {
@@ -34,6 +36,7 @@ const Button = ({ variant = 'primary', href, children, style, ...rest }) => {
     onMouseLeave: () => setPressed(false),
     ...rest,
   };
+  if (to) return <Link to={to} {...props}>{children}</Link>;
   return href
     ? <a href={href} {...props}>{children}</a>
     : <button type="button" {...props}>{children}</button>;

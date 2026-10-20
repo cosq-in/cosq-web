@@ -111,7 +111,7 @@ const SubEvents = () => {
 
       <footer className="subevents-footer">
         <h2>See you on the ground</h2>
-        <Button variant="alt" href="/">Back to the event</Button>
+        <Button variant="alt" to="/">Back to the event</Button>
         <Button href="https://forms.gle/eSjE4LS8Czn3pvay6">Volunteers Join Us</Button>
       </footer>
     </div>
