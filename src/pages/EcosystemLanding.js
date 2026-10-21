@@ -101,8 +101,8 @@ const EcosystemLanding = () => {
               <span className="home-when-place"><Fit short="Open ground · Bhubaneswar">Bhubaneswar, Odisha</Fit></span>
             </div>
             <div className="home-hero-ctas">
-              <Button variant="alt" onClick={() => setShowNote(true)}><Fit short="Prebooking Soon">Prebooking Open Soon</Fit></Button>
-              <Button href={VOLUNTEER_FORM}><Fit short="Volunteer With Us">Volunteers Join Us</Fit></Button>
+              <Button variant="alt" onClick={() => setShowNote(true)}><Fit short="Prebook Soon">Prebooking Open Soon</Fit></Button>
+              <Button href={VOLUNTEER_FORM}><Fit short="Volunteer">Volunteers Join Us</Fit></Button>
             </div>
           </div>
           {showNote && (
