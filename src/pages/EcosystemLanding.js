@@ -79,14 +79,16 @@ const EcosystemLanding = () => {
 
       {/* HERO / EVENT */}
       <section id="event" className="home-hero">
-        <picture>
-          <source media="(max-width:767px)" srcSet="/mobile-background.png" />
-          <img src="/desktop-background.png" alt="" className="home-hero-bg" />
-        </picture>
-        <picture>
-          <source media="(max-width:767px)" srcSet="/mobile-front.png" />
-          <img src="/desktop-front.png" alt="" className="home-hero-front" />
-        </picture>
+        <div className="home-hero-art">
+          <picture>
+            <source media="(max-width:767px)" srcSet="/mobile-background.png" />
+            <img src="/desktop-background.png" alt="" className="home-hero-bg" />
+          </picture>
+          <picture>
+            <source media="(max-width:767px)" srcSet="/mobile-front.png" />
+            <img src="/desktop-front.png" alt="" className="home-hero-front" />
+          </picture>
+        </div>
         <div className="home-hero-inner">
           <div className="home-hero-top">
             <Chip color="var(--cosq-purple)">The CosQ Event</Chip>
