@@ -81,3 +81,18 @@
   margin: 0;
   text-wrap: pretty;
 }
+
+/* <Fit>: full copy by default, paraphrased copy on phones */
+.fit-short {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .fit-full {
+    display: none;
+  }
+
+  .fit-short {
+    display: inline;
+  }
+}
