@@ -98,7 +98,7 @@ const EcosystemLanding = () => {
           <div className="home-hero-bottom">
             <div className="home-when">
               <span className="home-when-date">Soon!!</span>
-              <span className="home-when-place"><Fit short="Open ground · Bhubaneswar">Bhubaneswar, Odisha</Fit></span>
+              <span className="home-when-place">Bhubaneswar, Odisha</span>
             </div>
             <div className="home-hero-ctas">
               <Button variant="alt" onClick={() => setShowNote(true)}><Fit short="Prebook Soon">Prebooking Open Soon</Fit></Button>
