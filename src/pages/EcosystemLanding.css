@@ -599,16 +599,18 @@
     border-top: 2px solid var(--cosq-pink-light);
   }
 
-  /* Hero stacks on phones so nothing sits on top of the comic art, and
-     fills exactly one screen below the 60px nav: pink headline band, the
-     artwork taking whatever height is left, then the date card and CTAs.
+  /* Hero stacks on phones so nothing sits on top of the comic art: pink
+     headline band, then the artwork, then the CTA bar. The band and art
+     fill exactly one screen below the 60px nav, so the CTA bar (74px) and
+     the hero's 6px border sit just past the fold and arrive on scroll:
+     100svh - 60px nav + 74px CTA bar + 6px border = 100svh + 20px.
      On very short screens the art keeps a minimum and the hero grows. */
   .home-hero {
     display: flex;
     flex-direction: column;
     height: auto;
-    min-height: calc(100vh - 60px);
-    min-height: calc(100svh - 60px);
+    min-height: calc(100vh + 20px);
+    min-height: calc(100svh + 20px);
     max-height: none;
   }
 
