@@ -5,6 +5,7 @@ import './SubEvents.css';
 import './EcosystemLanding.css';
 import Button from '../ds/Button';
 import Chip from '../ds/Chip';
+import Fit from '../ds/Fit';
 
 const ventures = [
   {
@@ -79,18 +80,20 @@ const EcosystemLanding = () => {
 
       {/* HERO / EVENT */}
       <section id="event" className="home-hero">
-        <picture>
-          <source media="(max-width:767px)" srcSet="/mobile-background.png" />
-          <img src="/desktop-background.png" alt="" className="home-hero-bg" />
-        </picture>
-        <picture>
-          <source media="(max-width:767px)" srcSet="/mobile-front.png" />
-          <img src="/desktop-front.png" alt="" className="home-hero-front" />
-        </picture>
+        <div className="home-hero-art">
+          <picture>
+            <source media="(max-width:767px)" srcSet="/mobile-background.png" />
+            <img src="/desktop-background.png" alt="" className="home-hero-bg" />
+          </picture>
+          <picture>
+            <source media="(max-width:767px)" srcSet="/mobile-front.png" />
+            <img src="/desktop-front.png" alt="" className="home-hero-front" />
+          </picture>
+        </div>
         <div className="home-hero-inner">
           <div className="home-hero-top">
             <Chip color="var(--cosq-purple)">The CosQ Event</Chip>
-            <h1>Odisha's First Open Ground Pop Culture Event</h1>
+            <h1><Fit short="Odisha's First Pop Culture Fest">Odisha's First Open Ground Pop Culture Event</Fit></h1>
           </div>
           <div className="home-hero-bottom">
             <div className="home-when">
@@ -98,12 +101,12 @@ const EcosystemLanding = () => {
               <span className="home-when-place">Bhubaneswar, Odisha</span>
             </div>
             <div className="home-hero-ctas">
-              <Button variant="alt" onClick={() => setShowNote(true)}>Prebooking Open Soon</Button>
-              <Button href={VOLUNTEER_FORM}>Volunteers Join Us</Button>
+              <Button variant="alt" onClick={() => setShowNote(true)}><Fit short="Prebook Soon">Prebooking Open Soon</Fit></Button>
+              <Button href={VOLUNTEER_FORM}><Fit short="Volunteer">Volunteers Join Us</Fit></Button>
             </div>
           </div>
           {showNote && (
-            <div className="home-note">Prebooking opens soon. Follow @the.cosq for updates.</div>
+            <div className="home-note"><Fit short="Opening soon. Updates on @the.cosq">Prebooking opens soon. Follow @the.cosq for updates.</Fit></div>
           )}
         </div>
       </section>
@@ -112,7 +115,7 @@ const EcosystemLanding = () => {
       <section id="sub-events" className="home-teaser">
         <div>
           <h2 className="home-h2">Sub-events</h2>
-          <p>Thirteen stages, one ground. Follow the thread from 01 to 13.</p>
+          <p><Fit short="13 stages, one ground.">Thirteen stages, one ground. Follow the thread from 01 to 13.</Fit></p>
         </div>
         <Button to="/sub-events">Follow the thread &rarr;</Button>
       </section>
@@ -122,7 +125,9 @@ const EcosystemLanding = () => {
         <div className="home-wrap">
           <h2 className="home-h2 on-color">The CosQ Ecosystem</h2>
           <p className="home-ecosystem-lead">
-            A collection of ventures, projects, and personal passions. Everything under cosq.in, in one place.
+            <Fit short="Everything under cosq.in, in one place.">
+              A collection of ventures, projects, and personal passions. Everything under cosq.in, in one place.
+            </Fit>
           </p>
           <div className="home-ventures">
             {ventures.map(v => (
@@ -171,7 +176,7 @@ const EcosystemLanding = () => {
       {/* TEAM */}
       <section id="team" className="home-team">
         <h2 className="home-h2">The Minds Behind CosQ</h2>
-        <p className="home-team-lead">Meet the team building the future of digital experiences.</p>
+        <p className="home-team-lead"><Fit short="The team building CosQ.">Meet the team building the future of digital experiences.</Fit></p>
         <div className="home-team-grid">
           {team.map(m => (
             <div key={m.name} className="member">
@@ -189,7 +194,7 @@ const EcosystemLanding = () => {
         <div className="home-contact-row">
           <div>
             <h2 className="home-h2 on-color">Contact us</h2>
-            <p>If you have any questions, feel free to reach out.</p>
+            <p><Fit short="Questions? Reach out.">If you have any questions, feel free to reach out.</Fit></p>
           </div>
           <div className="home-contact-ctas">
             <Button variant="alt" href="mailto:info@cosq.in">info@cosq.in</Button>

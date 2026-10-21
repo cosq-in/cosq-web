@@ -4,6 +4,7 @@ import '../ds/tokens.css';
 import './SubEvents.css';
 import Button from '../ds/Button';
 import Chip from '../ds/Chip';
+import Fit from '../ds/Fit';
 import subEventsData from '../Events/subEventsData';
 
 const ROW = 230;
@@ -91,13 +92,13 @@ const SubEvents = () => {
           <img src="/icon.png" alt="CosQ" />
           <span>COSQ</span>
         </Link>
-        <Link to="/" className="subevents-back">&larr; Back to the event</Link>
+        <Link to="/" className="subevents-back">&larr; <Fit short="The event">Back to the event</Fit></Link>
       </nav>
 
       <header className="subevents-hero">
         <Chip color="var(--cosq-purple)">{subEventsData.length} stages · one ground</Chip>
         <h1>Sub-events</h1>
-        <p>Follow the thread from 01 to {String(subEventsData.length).padStart(2, '0')}. Keep scrolling.</p>
+        <p><Fit short="Scroll to follow the thread.">Follow the thread from 01 to {String(subEventsData.length).padStart(2, '0')}. Keep scrolling.</Fit></p>
       </header>
 
       <section className="subevents-section">
@@ -127,7 +128,7 @@ const SubEvents = () => {
       <footer className="subevents-footer">
         <h2>See you on the ground</h2>
         <Button variant="alt" to="/">Back to the event</Button>
-        <Button href="https://forms.gle/eSjE4LS8Czn3pvay6">Volunteers Join Us</Button>
+        <Button href="https://forms.gle/eSjE4LS8Czn3pvay6"><Fit short="Volunteer With Us">Volunteers Join Us</Fit></Button>
       </footer>
     </div>
   );
