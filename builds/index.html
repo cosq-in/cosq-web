@@ -30,6 +30,7 @@
         <a href="#packages">/packages</a>
         <a href="#systems">/systems</a>
         <a href="#research">/research</a>
+        <a href="#embeddings">/embeddings</a>
         <a href="#contact" class="hot">/contact</a>
       </div>
       <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="menu">
@@ -43,7 +44,8 @@
         <a href="#packages" style="--i:2"><span class="num">03</span><span class="label">Packages</span><span class="arrow">→</span></a>
         <a href="#systems" style="--i:3"><span class="num">04</span><span class="label">Systems</span><span class="arrow">→</span></a>
         <a href="#research" style="--i:4"><span class="num">05</span><span class="label">Research</span><span class="arrow">→</span></a>
-        <a href="#contact" style="--i:5"><span class="num">06</span><span class="label">Contact</span><span class="arrow">→</span></a>
+        <a href="#embeddings" style="--i:5"><span class="num">06</span><span class="label">Embeddings</span><span class="arrow">→</span></a>
+        <a href="#contact" style="--i:6"><span class="num">07</span><span class="label">Contact</span><span class="arrow">→</span></a>
       </div>
       <div class="menu-foot">
         <span>info@cosq.in</span>
@@ -193,6 +195,39 @@
         </div>
       </div>
     </div>
+  </section>
+
+  <section id="embeddings" class="wrap section">
+    <div class="kicker">// embeddings and search</div>
+    <h2 class="h2" style="margin-bottom:16px">Search that understands images and text</h2>
+    <p class="lead">We take an embedding model from raw data to a production service: label and clean the data, fine-tune the model, host it reliably, and put it behind the search your product runs on.</p>
+    <div class="grid" style="--min:200px;--gap:20px;margin-bottom:40px">
+      <div class="card flow"><span class="step-num">01</span><h3>Label and annotate</h3><p>Annotation guidelines, labelled pairs and spot checks, so the training data says what you mean.</p></div>
+      <div class="card flow"><span class="step-num">02</span><h3>Clean and verify</h3><p>Dedupe, consistency checks and a verification pass before anything reaches training.</p></div>
+      <div class="card flow"><span class="step-num">03</span><h3>Fine-tune</h3><p>Qwen and GME embedding models trained on your data for text, image and mixed queries.</p></div>
+      <div class="card flow"><span class="step-num">04</span><h3>Serve</h3><p>Stable hosting on EC2 or SageMaker, packaged as production-ready pods with health checks.</p></div>
+      <div class="card flow"><span class="step-num">05</span><h3>Search</h3><p>Vectors in a vector database, queried by your app through one search API.</p></div>
+    </div>
+    <div class="grid" style="--min:420px;align-items:start">
+      <div class="term">
+        <div class="term-bar"><span>embeddings · pods</span><span>ec2 · sagemaker</span></div>
+<pre><span class="pk">$</span> kubectl get pods -l app=embeddings
+ NAME             READY   STATUS
+ embed-text-0     1/1     <span class="pk">Running</span>
+ embed-image-0    1/1     <span class="pk">Running</span>
+ search-api-0     1/1     <span class="pk">Running</span>
+
+<span class="pk">$</span> search --text "query" --image ref.jpg
+ <span class="pk">→</span> embed  <span class="pk">→</span> vector db  <span class="pk">→</span> ranked results</pre>
+      </div>
+      <div class="grid" style="--min:190px;--gap:16px">
+        <div class="card"><div class="kicker-sm pink">TEXT TO IMAGE</div><h3>Find the picture</h3><p>Describe what you want and get the matching images.</p></div>
+        <div class="card"><div class="kicker-sm pink">IMAGE TO TEXT</div><h3>Name the picture</h3><p>Start from an image and find the matching text.</p></div>
+        <div class="card"><div class="kicker-sm pink">IMAGE TO IMAGE</div><h3>More like this</h3><p>Visual similarity search from a single reference.</p></div>
+        <div class="card"><div class="kicker-sm pink">IMAGE RAG</div><h3>Retrieval for models</h3><p>Retrieve relevant images and text to ground what a model answers.</p></div>
+      </div>
+    </div>
+    <div class="mono" style="margin-top:28px">qwen · gme · contrastive fine-tuning · vector databases · ec2 · sagemaker · docker · kubernetes</div>
   </section>
 
   <section id="process" class="process">
