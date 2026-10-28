@@ -6,6 +6,7 @@ import './EcosystemLanding.css';
 import Button from '../ds/Button';
 import Chip from '../ds/Chip';
 import Fit from '../ds/Fit';
+import { BlockStacker, CoderCharacter } from './BuildsArt';
 
 const ventures = [
   {
@@ -13,21 +14,21 @@ const ventures = [
     domain: 'wham.cosq.in',
     tag: 'OTT Platform',
     description: 'Hybrid playback, comic-paneled immersive "Living Comic Book" design.',
+    order: 1,
   },
-  {
-    title: 'PreviouslyOn',
-    domain: 'previouslyon.cosq.in',
-    tag: 'Letterboxd for TV',
-    description: 'Social TV tracking, real-time feeds, and AI recommendations.',
-  },
-  // Research & IT (research.cosq.in, "Innovation Wing") is hidden for now.
+  // Research & IT (research.cosq.in, "Innovation Wing") and PreviouslyOn are hidden for now.
   {
     title: 'CosQ Labs',
     domain: 'labs.cosq.in',
     tag: 'Creative & Talent',
     description: 'Digital Labs (Graphics) & Creators Labs (Talent Agency).',
+    order: 3,
+    art: <BlockStacker />,
   },
 ];
+
+// Sits between WHAM! and CosQ Labs (order 2) in the ventures grid.
+const BUILDS_DOMAIN = 'builds.cosq.in';
 
 const team = [
   { name: 'Snehasis Ghosh', role: 'CEO · Chief Executive Officer', description: 'Visionary leadership driving the CosQ ecosystem forward.' },
@@ -131,14 +132,23 @@ const EcosystemLanding = () => {
           </p>
           <div className="home-ventures">
             {ventures.map(v => (
-              <a key={v.domain} href={`https://${v.domain}`} className="venture">
+              <a key={v.domain} href={`https://${v.domain}`} className="venture" style={{ order: v.order }}>
                 <span className="venture-tag">{v.tag}</span>
                 <h3>{v.title}</h3>
                 <span className="venture-domain">{v.domain}</span>
                 <p>{v.description}</p>
                 <span className="venture-visit">Visit &rarr;</span>
+                {v.art}
               </a>
             ))}
+            <a href={`https://${BUILDS_DOMAIN}`} className="venture-builds" style={{ order: 2 }}>
+              <CoderCharacter />
+              <span className="venture-tag builds-tag">Software Studio</span>
+              <h3>CosQ Builds</h3>
+              <span className="builds-domain">{BUILDS_DOMAIN}</span>
+              <p>Websites, apps, ML and AI research, and the automation that runs the rest.</p>
+              <span className="builds-visit">Visit &rarr;</span>
+            </a>
           </div>
           <div className="home-brands">
             <a href="https://kurukuru.cosq.in" className="kurukuru">

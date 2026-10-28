@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;600&family=Instrument+Serif:ital@0;1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;600&family=Instrument+Serif:ital@0;1&family=Press+Start+2P&display=swap");
 
 .home {
   min-height: 100vh;
@@ -200,14 +200,14 @@
 .cosq-ds .home-ecosystem-lead {
   font-size: 19px;
   color: #fff;
-  margin: 0 0 40px;
+  margin: 0 0 96px; /* room for the Builds character peeking over its card */
   max-width: 640px;
 }
 
 .home-ventures {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
-  gap: 32px;
+  gap: 96px 32px;
 }
 
 .cosq-ds .venture,
@@ -221,6 +221,7 @@
   padding: 24px;
   min-height: 230px;
   min-width: 0;
+  position: relative;
   color: var(--cosq-purple-deep);
 }
 
@@ -263,6 +264,59 @@
   font: 400 15px var(--font-display);
   text-transform: uppercase;
   color: var(--cosq-pink);
+}
+
+/* CosQ Builds: dark grid card with a developer character sitting on top */
+.cosq-ds .venture-builds,
+.cosq-ds .venture-builds:hover {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+  min-width: 0;
+  min-height: 230px;
+  padding: 24px;
+  background-color: #1a0630;
+  background-image: linear-gradient(rgba(255, 94, 181, .14) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 94, 181, .14) 1px, transparent 1px);
+  background-size: 24px 24px;
+  border: 6px solid var(--cosq-pink);
+  box-shadow: 6px 6px 0 var(--cosq-purple-deep);
+  color: #fff;
+}
+
+.venture-builds:hover {
+  transform: translate(-3px, -3px);
+}
+
+.cosq-ds .venture-builds h3 {
+  font: 400 clamp(22px, 2.3vw, 30px)/1.05 var(--font-display);
+  text-transform: uppercase;
+  color: #fff;
+  margin: 0;
+  text-shadow: 2px 2px 0 var(--cosq-pink);
+}
+
+.cosq-ds .venture-builds p {
+  font-size: 16px;
+  line-height: 1.45;
+  margin: 0;
+  flex: 1;
+  color: #fff;
+}
+
+.venture-builds .builds-tag {
+  background: var(--cosq-pink);
+}
+
+.venture-builds .builds-domain {
+  font: 500 14px var(--font-body);
+  color: #f3d6ec;
+}
+
+.venture-builds .builds-visit {
+  font: 400 15px var(--font-display);
+  text-transform: uppercase;
+  color: #ff8ff6;
 }
 
 .home-brands {
@@ -747,6 +801,11 @@
   .home-brands,
   .home-team-grid {
     gap: 24px;
+  }
+
+  /* Single column: keep the gap above the Builds card big enough for its character */
+  .venture-builds {
+    margin-top: 72px;
   }
 
   .home-brands {
