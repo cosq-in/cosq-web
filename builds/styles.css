@@ -980,3 +980,13 @@ p {
     right: 10px;
   }
 }
+
+/* ---------- Embeddings ---------- */
+
+.card.flow {
+  gap: 10px;
+}
+
+.card.flow .step-num {
+  align-self: flex-start;
+}
