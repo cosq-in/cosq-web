@@ -28,7 +28,7 @@ const ventures = [
 ];
 
 // Sits between WHAM! and CosQ Labs (order 2) in the ventures grid.
-const BUILDS_DOMAIN = 'builds.cosq.in';
+const BUILDS_DOMAIN = 'build.cosq.in';
 
 const team = [
   { name: 'Snehasis Ghosh', role: 'CEO · Chief Executive Officer', description: 'Visionary leadership driving the CosQ ecosystem forward.' },
