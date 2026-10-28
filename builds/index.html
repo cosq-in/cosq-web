@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CosQ Builds: websites, apps, ML and automation</title>
+<meta name="description" content="Websites, apps, ML and AI research, and the workflows that automate the rest. One small team, from first commit to production.">
+<meta property="og:title" content="CosQ Builds">
+<meta property="og:description" content="We build the software: websites, apps, ML and AI, and automation.">
+<meta property="og:url" content="https://builds.cosq.in">
+<meta property="og:image" content="https://builds.cosq.in/icon.png">
+<link rel="icon" href="/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bungee&family=Outfit:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Press+Start+2P&family=Pixelify+Sans:wght@600&display=swap">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<div class="page">
+  <!-- Scroll progress, styled as an XP bar -->
+  <div class="xp-bar"><div class="xp-fill" id="xp"></div></div>
+
+  <nav class="nav" id="nav">
+    <div class="nav-row">
+      <a href="#top" class="brand"><img src="/icon.png" alt="CosQ"><span>COSQ BUILDS</span></a>
+      <div class="nav-links">
+        <a href="#services">/services</a>
+        <a href="#media">/media</a>
+        <a href="#packages">/packages</a>
+        <a href="#systems">/systems</a>
+        <a href="#research">/research</a>
+        <a href="#contact" class="hot">/contact</a>
+      </div>
+      <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="menu" id="menu">
+      <div class="menu-links">
+        <a href="#services" style="--i:0"><span class="num">01</span><span class="label">Services</span><span class="arrow">→</span></a>
+        <a href="#media" style="--i:1"><span class="num">02</span><span class="label">Media</span><span class="arrow">→</span></a>
+        <a href="#packages" style="--i:2"><span class="num">03</span><span class="label">Packages</span><span class="arrow">→</span></a>
+        <a href="#systems" style="--i:3"><span class="num">04</span><span class="label">Systems</span><span class="arrow">→</span></a>
+        <a href="#research" style="--i:4"><span class="num">05</span><span class="label">Research</span><span class="arrow">→</span></a>
+        <a href="#contact" style="--i:5"><span class="num">06</span><span class="label">Contact</span><span class="arrow">→</span></a>
+      </div>
+      <div class="menu-foot">
+        <span>info@cosq.in</span>
+        <span><a href="https://cosq.in">cosq.in</a><a href="https://labs.cosq.in">labs</a></span>
+      </div>
+    </div>
+  </nav>
+
+  <header id="top" class="hero">
+    <div class="hero-text">
+      <div class="hero-text-inner">
+        <span class="hero-tag">web · apps · ml · automation</span>
+        <h1>We build<br>the software.</h1>
+        <p>Websites, apps, ML and AI research, and the workflows that automate the rest. One small team, from first commit to production.</p>
+        <div class="row-btns">
+          <a class="btn" href="#contact">Start a build</a>
+          <a class="btn alt" href="#research">See our research</a>
+        </div>
+      </div>
+    </div>
+    <div class="play">
+      <canvas id="game" aria-label="Runner game: press space or tap to jump"></canvas>
+      <div class="hud">
+        <div class="hud-score">XP <span id="score">0000</span></div>
+        <div class="hud-hint">SPACE / TAP: JUMP<br>STOMP BUGS<br>HIT THE BLOCKS</div>
+      </div>
+      <div class="hud-bottom">
+        <div class="won" id="won" hidden>ALL 4 UNLOCKED · SCROLL DOWN</div>
+        <div class="slots" id="slots">
+          <div>SITES</div><div>APPS</div><div>ML+AI</div><div>AUTO</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="services" class="wrap section">
+    <div class="kicker">// what we build</div>
+    <h2 class="h2" style="margin-bottom:32px">Four ways to build with us</h2>
+    <div class="grid" style="--min:260px">
+      <div class="svc"><span class="kicker">01</span><h3>Websites</h3><p>Fast, branded sites and web apps, designed and engineered together.</p><div class="mono">next.js · react · typescript</div></div>
+      <div class="svc"><span class="kicker">02</span><h3>Apps</h3><p>Mobile and cross-platform apps with the backend, admin panel and release pipeline behind them.</p><div class="mono">flutter · capacitor · fastapi</div></div>
+      <div class="svc"><span class="kicker">03</span><h3>ML and AI</h3><p>Models, research and generative pipelines, from first experiment to deployed service.</p><div class="mono">pytorch · ltx · wan · comfyui · elevenlabs</div></div>
+      <div class="svc"><span class="kicker">04</span><h3>Workflows and automation</h3><p>Internal tools, bots and pipelines that take repeat work off your team.</p><div class="mono">python · go · docker</div></div>
+    </div>
+  </section>
+
+  <section id="media" class="dark">
+    <div class="scan"></div>
+    <div class="dark-inner">
+      <div class="kicker-sm">[ GEN.MEDIA // ONLINE ]</div>
+      <h2 class="h2-dark">Generative media pipelines</h2>
+      <p class="dark-lead">We wire video, voice and image models into repeatable workflows, so one input produces a finished asset with no manual steps in between.</p>
+      <div class="pipeline"><div class="pipeline-inner"><svg viewBox="0 0 960 200" font-family="'Press Start 2P',monospace" role="img" aria-label="Pipeline: prompt, video, lip-sync, voice, export">
+        <g stroke="#ff5eb5" stroke-width="4" stroke-dasharray="8 8" fill="none"><path d="M160 100 H212"><animate attributeName="stroke-dashoffset" from="32" to="0" dur="1s" repeatCount="indefinite"/></path><path d="M362 100 H414"><animate attributeName="stroke-dashoffset" from="32" to="0" dur="1s" repeatCount="indefinite"/></path><path d="M564 100 H616"><animate attributeName="stroke-dashoffset" from="32" to="0" dur="1s" repeatCount="indefinite"/></path><path d="M766 100 H818"><animate attributeName="stroke-dashoffset" from="32" to="0" dur="1s" repeatCount="indefinite"/></path></g>
+        <g fill="#3a0f5c" stroke="#ff5eb5" stroke-width="3"><rect x="10" y="55" width="150" height="90"/><rect x="212" y="55" width="150" height="90"/><rect x="414" y="55" width="150" height="90"/><rect x="616" y="55" width="150" height="90"/><rect x="818" y="55" width="132" height="90"/></g>
+        <g fill="#e94fa8"><rect x="10" y="55" width="150" height="22"/><rect x="212" y="55" width="150" height="22"/><rect x="414" y="55" width="150" height="22"/><rect x="616" y="55" width="150" height="22"/><rect x="818" y="55" width="132" height="22"/></g>
+        <g fill="#fff" font-size="8"><text x="20" y="71">INPUT</text><text x="222" y="71">VIDEO</text><text x="424" y="71">LIPSYNC</text><text x="626" y="71">VOICE</text><text x="828" y="71">OUTPUT</text></g>
+        <g fill="#fff" font-size="11"><text x="22" y="112">PROMPT</text><text x="224" y="112">LTX·WAN</text><text x="426" y="112">LATENT</text><text x="628" y="112">ELEVEN</text><text x="830" y="112">EXPORT</text></g>
+        <g fill="#ff8ff6" font-size="8"><text x="22" y="132">TXT/IMG</text><text x="224" y="132">T2V · I2V</text><text x="426" y="132">SYNC</text><text x="628" y="132">LABS</text><text x="830" y="132">MP4</text></g>
+        <g fill="#fff"><rect x="156" y="96" width="8" height="8"/><rect x="358" y="96" width="8" height="8"/><rect x="560" y="96" width="8" height="8"/><rect x="762" y="96" width="8" height="8"/></g>
+      </svg></div></div>
+      <div class="grid" style="--min:260px;--gap:24px">
+        <div class="glow"><span class="kicker-sm">VIDEO</span><h3>Text and image to video</h3><p>Pipelines on LTX and Wan 2.2 that turn prompts and reference frames into finished clips.</p></div>
+        <div class="glow"><span class="kicker-sm">LIP-SYNC</span><h3>Talking characters</h3><p>LatentSync lip-sync wired into automated production, so a script becomes a speaking character.</p></div>
+        <div class="glow"><span class="kicker-sm">VOICE</span><h3>ElevenLabs in the loop</h3><p>Voice generation and dubbing connected to the same workflow, with no manual export steps.</p></div>
+        <div class="glow"><span class="kicker-sm">COMFYUI</span><h3>Workflows and custom nodes</h3><p>Custom ComfyUI nodes and reusable graphs that we turn into APIs and automated jobs.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="packages" class="wrap section">
+    <div class="kicker">// python packages</div>
+    <h2 class="h2" style="margin-bottom:16px">Libraries you can pip install</h2>
+    <p class="lead">We publish our tooling as typed, documented Python packages, from research libraries to terminal dashboards.</p>
+    <div class="grid" style="--min:420px;align-items:start">
+      <div class="term">
+        <div class="term-bar"><span>huzz</span><span>v0.3 · mit</span></div>
+<pre><span class="pk">$</span> pip install huzz
+<span class="pk">$</span> huzz
+
+ tokyo-node-1
+ ──────────────────────────
+ api-v2        aura <span class="pk">99</span>  <span class="pk">locked in</span>
+ ec2-worker    aura <span class="pk">71</span>  motion ▂▅▇
+ cache-01      aura  <span class="hot">04</span>  <span class="hot">cooked</span></pre>
+      </div>
+      <div class="stack">
+        <div class="card"><div class="kicker-sm pink">PYPI · CONDA-FORGE</div><h3>gaitSetPy</h3><p>Gait analysis and recognition. Loaders for Daphnet, HAR-UP, UrFall and PhysioNet, feature extraction, random forest and deep models, and plotting.</p><div class="mono">pip install gaitsetpy</div></div>
+        <div class="card"><div class="kicker-sm pink">PYPI</div><h3>huzz</h3><p>A full-screen terminal observability toolkit with a CloudWatch adapter, built on pydantic and rich. Runs on Windows, Linux and macOS.</p><div class="mono">pip install huzz</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="systems" class="dark bordered">
+    <div class="scan"></div>
+    <div class="dark-inner">
+      <div class="kicker-sm">[ SYS.CORE // CONNECTIVITY ]</div>
+      <h2 class="h2-dark">Systems and networking</h2>
+      <p class="dark-lead">Below the app layer we work on protocols, radios, sensors and infrastructure. Click the mesh to send a message and watch it hop.</p>
+      <div class="grid" style="--min:380px;align-items:stretch">
+        <div class="mesh">
+          <div class="mesh-bar"><span>MESH.SIM</span><span>TTL 7</span></div>
+          <canvas id="mesh" width="360" height="230" aria-label="Mesh network simulation: click to send a message"></canvas>
+        </div>
+        <div class="grid" style="--min:240px;--gap:20px">
+          <div class="glow sm"><span class="kicker-sm">MESH</span><h3>Bluetooth LE mesh</h3><p>Peer-to-peer messaging with multi-hop relay, store-and-forward, and X25519 with AES-256-GCM encryption.</p></div>
+          <div class="glow sm"><span class="kicker-sm">SOCKETS</span><h3>Network programming</h3><p>TCP and UDP sockets, protocol design, LAN and router simulations across the OSI stack.</p></div>
+          <div class="glow sm"><span class="kicker-sm">SENSORS</span><h3>Streaming and robotics</h3><p>Lidar, IMU, GPS and camera streams over TCP to a server, plus ROS2 calibration tooling.</p></div>
+          <div class="glow sm"><span class="kicker-sm">CLOUD</span><h3>Infrastructure</h3><p>Kubernetes on AWS with Terraform and GitOps, and ML deployments on SageMaker.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="research" class="research">
+    <div class="inner">
+      <div class="kicker" style="color:var(--cosq-purple-deep)">// ml and ai research</div>
+      <h2 class="h2 white" style="margin-bottom:16px">We implement the papers</h2>
+      <p class="lead white">We read the research, rebuild it from scratch, and publish the code, weights and notes so others can learn from it. This is the kind of work we do.</p>
+      <div class="grid" style="--min:400px;align-items:start">
+        <div class="card flush">
+          <div class="term-bar wrapbar"><span>aharshit123456/learn_ddpm</span><span>text-to-image · diffusers · mit</span></div>
+          <div class="ddpm">
+            <h3 class="big">Learn DDPM</h3>
+            <p>A full implementation of Denoising Diffusion Probabilistic Models, trained on CIFAR-10 and Danbooru2023, with pretrained weights, a train and generate workflow, and lecture notes on the mathematics.</p>
+            <div class="mono">pytorch · unet · diffusers · cifar-10 · danbooru2023</div>
+            <div class="row-btns" style="margin-top:6px">
+              <a class="btn" href="https://huggingface.co/aharshit123456/learn_ddpm">Model on Hugging Face</a>
+              <a class="btn alt" href="https://github.com/MLSAKIIT/ddpm">Code on GitHub</a>
+            </div>
+          </div>
+        </div>
+        <div class="stack">
+          <div class="card deep">
+            <div class="kicker-sm light">// the game</div>
+            <h3>You are the denoiser</h3>
+            <p>To explain how the model works, you play the reverse diffusion yourself and clean up images corrupted with grids of noise.</p>
+            <a class="kicker" style="color:var(--cosq-pink-light)" href="https://learndiffusion.vercel.app">learndiffusion.vercel.app →</a>
+          </div>
+          <div class="card papers">
+            <div class="kicker-sm pink">// papers it builds on</div>
+            <a href="https://arxiv.org/abs/2006.11239">Denoising Diffusion Probabilistic Models <span>arXiv 2006.11239</span></a>
+            <a href="https://arxiv.org/abs/2102.09672">Improved Denoising Diffusion Probabilistic Models <span>arXiv 2102.09672</span></a>
+            <a href="https://arxiv.org/abs/2105.05233">Diffusion Models Beat GANs on Image Synthesis <span>arXiv 2105.05233</span></a>
+            <a href="https://arxiv.org/abs/2112.10752">High-Resolution Image Synthesis with Latent Diffusion Models <span>arXiv 2112.10752</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="process" class="process">
+    <div class="inner grid" style="--min:400px;--gap:40px;align-items:center">
+      <div>
+        <div class="kicker" style="color:var(--cosq-pink-light)">// how it runs</div>
+        <h2 class="h2 white on-purple" style="margin-bottom:24px">Brief to production</h2>
+        <div class="steps">
+          <div class="step"><span class="step-num">01</span><div><div class="step-title">Scope</div><div class="step-desc">A short brief, a clear list of what ships and when.</div></div></div>
+          <div class="step"><span class="step-num">02</span><div><div class="step-title">Prototype</div><div class="step-desc">A working version you can click through in the first weeks.</div></div></div>
+          <div class="step"><span class="step-num">03</span><div><div class="step-title">Build</div><div class="step-desc">Reviewed code, tested releases and a deploy pipeline from day one.</div></div></div>
+          <div class="step"><span class="step-num">04</span><div><div class="step-title">Automate</div><div class="step-desc">Monitoring and workflows so it keeps running without hand-holding.</div></div></div>
+        </div>
+      </div>
+<pre class="cli">$ cosq new project
+<span class="ok">✓</span> brief scoped
+<span class="ok">✓</span> prototype in review
+<span class="ok">✓</span> ci/cd configured
+<span class="ok">✓</span> deployed
+$ cosq automate --repeat
+<span class="ok">→</span> workflows running</pre>
+    </div>
+  </section>
+
+  <footer id="contact" class="footer">
+    <div class="footer-row">
+      <div style="max-width:620px">
+        <h2 class="h2 white" style="margin-bottom:16px">Have something to build?</h2>
+        <p class="footer-lead">Tell us the problem. We'll tell you what it takes.</p>
+      </div>
+      <div class="row-btns">
+        <a class="btn alt" href="mailto:info@cosq.in?subject=CosQ%20Builds">info@cosq.in</a>
+        <a class="btn" href="https://github.com/cosq-in">github.com/cosq-in</a>
+      </div>
+    </div>
+    <div class="footer-meta">
+      <span>© 2026 CosQ. All rights reserved.</span>
+      <span class="footer-links"><a href="https://cosq.in">cosq.in</a><a href="https://labs.cosq.in">labs.cosq.in</a></span>
+    </div>
+  </footer>
+</div>
+<script src="/main.js"></script>
+</body>
+</html>
