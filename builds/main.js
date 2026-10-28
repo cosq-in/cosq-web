@@ -35,8 +35,6 @@
   const scoreEl = document.getElementById("score");
   const wonEl = document.getElementById("won");
   const slotEls = [...document.querySelectorAll("#slots div")];
-  const img = new Image();
-  img.src = "/icon.png";
 
   const g = { W: 0, H: 0, gy: 0, S: 4, t: 0, speed: 1.7, score: 0, bugs: [], blocks: [], parts: [], pops: [], next: 60, hit: 0, shake: 0, got: [false, false, false, false], p: { x: 0, y: 0, vy: 0, jumps: 0 } };
   let wonTimer = 0;
@@ -80,6 +78,21 @@
       jump();
     }
   });
+
+  // The runner is Q-chan, drawn as pixel rects (x, y is the top-left of her 20x20 box):
+  // rainbow-gradient braid behind her, legs that swap each step on the ground
+  // and tuck in mid-air, overalls and tie, then the head and hair.
+  const drawQ = (c, x, y, t, air) => {
+    const R = (col, a, b, w, h) => { c.fillStyle = col; c.fillRect(Math.round(x + a), Math.round(y + b), w, h); };
+    ["#7b4bb0", "#b5509a", "#e0803a", "#b8a838"].forEach((col, i) => R(col, 3 - (i + 1) * 3, 8 + Math.sin(t * 0.4 + i) * 1.5 + i, 3, 3));
+    const f = Math.floor(t / 5) % 2, l1 = air ? 0 : (f ? -1 : 1), l2 = air ? 2 : (f ? 1 : -1);
+    R("#a8d8ea", 6 + l1, 14, 3, 4); R("#a8d8ea", 11 + l2, 14, 3, 4);
+    R("#fff", 5 + l1, 18, 5, 2); R("#fff", 10 + l2, 18, 5, 2); R("#f0506e", 5 + l1, 19, 5, 1); R("#f0506e", 10 + l2, 19, 5, 1);
+    R("#34386b", 6, 9, 8, 6); R("#a8d8ea", 7, 11, 6, 5); R("#f0506e", 9, 9, 2, 5);
+    R("#d9a37a", 5, 1, 10, 8); R("#2b2a66", 4, 0, 12, 3); R("#2b2a66", 4, 2, 2, 6); R("#2b2a66", 14, 2, 2, 5);
+    R("#ffe14a", 9, -2, 2, 3); R("#ff5eb5", 11, -1, 2, 2); R("#e0305a", 7, 5, 1, 2); R("#b5d63a", 12, 5, 1, 2);
+    R("#d9a37a", air ? 15 : 4, air ? 7 : 11, 2, 3); R("#ffd23a", air ? 15 : 3, air ? 9 : 13, 3, 2);
+  };
 
   const hill = (x, amp, f, off) => Math.round((Math.sin((x + off) * f) * 0.5 + 0.5) * amp / 3) * 3;
   const clouds = [[20, 40, 16], [90, 70, 22], [150, 30, 14], [220, 60, 18]];
@@ -190,9 +203,7 @@
     });
     if (g.hit <= 0 || Math.floor(g.t / 3) % 2) {
       ctx.fillStyle = "rgba(26,6,48,.25)"; ctx.fillRect(p.x + 3, gy - 2, 14, 2);
-      const sq = p.vy < -1 ? 1 : 0;
-      if (img.complete && img.naturalWidth) ctx.drawImage(img, p.x - sq, p.y + (p.y >= gy - 20 ? Math.round(Math.sin(g.t * 0.5)) : 0), 20 + sq * 2, 20);
-      else { ctx.fillStyle = "#e94fa8"; ctx.fillRect(p.x, p.y, 20, 20); }
+      drawQ(ctx, p.x, p.y + (p.y >= gy - 20 ? Math.round(Math.sin(g.t * 0.5)) : 0), g.t, p.y < gy - 20);
     }
     g.parts.forEach(q => { ctx.fillStyle = q.c; ctx.fillRect(Math.round(q.x), Math.round(q.y), 2, 2); });
     ctx.font = "7px 'Press Start 2P',monospace"; ctx.textBaseline = "top";
