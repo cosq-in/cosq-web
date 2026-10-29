@@ -1,0 +1,28 @@
+/* CosQ Apps page: dark theme on top of the shared Builds styles.css */
+body.apps {
+  background: #1a0630;
+  color: #fff;
+}
+
+body.apps a {
+  color: #ff8ff6;
+}
+
+body.apps a:hover {
+  color: #fff;
+}
+
+/* The shared button keeps its own colours on this page */
+body.apps .btn,
+body.apps .btn:hover {
+  color: #fff;
+}
+
+body.apps .btn.alt,
+body.apps .btn.alt:hover {
+  color: var(--cosq-pink);
+}
+
+body.apps button {
+  font: inherit;
+}

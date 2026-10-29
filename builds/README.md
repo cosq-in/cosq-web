@@ -1,6 +1,7 @@
 # CosQ Builds (build.cosq.in)
 
-A static, dependency-free site: `index.html`, `styles.css`, `main.js` and `icon.png`.
+A static, dependency-free site: `index.html`, `styles.css`, `main.js` and `icon.png`,
+plus the Kurukuru page at `/apps/` (`apps/index.html`, `apps.css`, `apps.js`).
 No build step.
 
 ## Deploy on Vercel (build.cosq.in)

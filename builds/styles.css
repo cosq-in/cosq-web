@@ -590,6 +590,21 @@ p {
   margin-top: auto;
 }
 
+.svc-link,
+.svc-link:hover {
+  align-self: flex-start;
+  font: 400 10px/1.7 var(--font-pixel);
+  color: #fff;
+  background: var(--cosq-pink);
+  border: 3px solid var(--cosq-purple-deep);
+  box-shadow: 3px 3px 0 var(--cosq-purple-deep);
+  padding: 10px 12px;
+}
+
+.svc-link:hover {
+  transform: translate(-2px, -2px);
+}
+
 /* ---------- Dark grid sections (media, systems) ---------- */
 
 .dark {
